@@ -1,0 +1,106 @@
+.gcs {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 1fr 150px;
+  height: 100vh;
+  background: #0f172a;
+  color: white;
+}
+
+.left-panel {
+  padding: 10px;
+}
+
+.main-panel {
+  grid-column: 2;
+  grid-row: 1;
+  border-left: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.command-panel {
+  grid-column: 1 / span 2;
+  border-top: 1px solid #334155;
+  padding: 10px;
+}
+
+.telemetry-panel {
+  background: #020617;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+.drone-card {
+  position: relative;
+  background: #0f172a;
+  height: 60px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+}
+
+/* Hover enlarge */
+.drone-card:hover {
+  transform: scale(1.05);
+  background: #1e293b;
+}
+
+/* Active drone */
+.drone-card.active {
+  box-shadow: 0 0 0 2px #38bdf8;
+}
+
+/* Drone ID */
+.drone-id {
+  font-size: 16px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+/* Diagonal slice */
+.status-slice {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* Text inside slice */
+.status-slice span {
+  transform: skew(-12deg);
+  font-size: 14px;
+}
+
+/* Status colors */
+.status-slice.flying {
+  background: #22c55e;
+}
+
+.status-slice.hovering {
+  background: #38bdf8;
+}
+
+.status-slice.idle {
+  background: #94a3b8;
+}
+
+.status-slice.returning {
+  background: #fb923c;
+}
+
+.status-slice.error {
+  background: #ef4444;
+}
